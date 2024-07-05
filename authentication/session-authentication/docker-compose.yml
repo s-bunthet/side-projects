@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  web:
+    image: php:7.3-apache
+    volumes:
+      - ../jwt-authentication:/var/www/html
+    ports:
+      - "8082:80"
