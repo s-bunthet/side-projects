@@ -1,2 +1,2 @@
-jwt-authentication/vendor/
-oaut-authentication/vendor/
+authentication/jwt-authentication/vendor/
+authentication/oaut-authentication/vendor/
