@@ -15,6 +15,6 @@ This repository contains all the sides projects for personal development.
 * API
   * Rest API
   * gRPC
-* Microservices
+* Microservices (keycloak, redis, ...)
 * Persional Portfolio
 
