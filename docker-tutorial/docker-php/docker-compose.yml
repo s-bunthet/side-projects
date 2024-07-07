@@ -1,0 +1,38 @@
+version: "3.1"
+services:
+  appache:
+    build:
+      context: ./appache
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+    volumes:
+      - ./src:/var/www/html
+      - ./appache/conf/sites-available:/etc/apache2/sites-available
+      - ./appache/conf/sites-enabled:/etc/apache2/sites-enabled
+      # - ./appache/conf/hosts:/etc/hosts
+  mysql:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+      - ./mysql/conf:/etc/mysql/conf.d
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8081:80
+    environment:
+      - PMA_ARBITRARY=1
